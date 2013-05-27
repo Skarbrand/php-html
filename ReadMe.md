@@ -17,7 +17,7 @@ You can also use github for feature-request.
 `html_table`( css_class, syntax_level )  
 `html_form`( action, syntax_level )
 
-*italic* values are optional
+*italic* values are optional  
 syntax_level describes the 'deepness' of the object in the syntax tree
 
 ###Examples###
