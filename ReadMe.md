@@ -2,17 +2,18 @@
 
 ##Introduction##
 
-
+It is important that the resulting code provides best readability.
 
 ##Documentation##
 ###Reference###
 ------
 ####Core elements####
-```phphtml_page(*title*)```
-html_table(css_class, syntax_level)
-html_form
 
-italic values are optional
+`html_page`(*title*)
+`html_table`(css_class, syntax_level)
+`html_form`
+
+*italic* values are optional
 ###Examples###
 -----
 ####Hello World####
