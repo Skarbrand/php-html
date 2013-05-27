@@ -9,9 +9,9 @@ It is important that the resulting code provides best readability.
 ------
 ####Core elements####
 
-`html_page`(*title*)
-`html_table`(css_class, syntax_level)
-`html_form`
+`html_page`( *title* )  
+`html_table`( css_class, syntax_level )  
+`html_form`  
 
 *italic* values are optional
 ###Examples###
@@ -26,10 +26,14 @@ It is important that the resulting code provides best readability.
 	$page->html_label('Hello World!');
 	$page->html_render();
 ```
-####Building a table dynamicly####
+####Building a table dynamically####
 ```php
-	$table = new html_table("css_class",3);
-	for i
-		$table
+	$table = new html_table('css_class',3);
+	$array = ['a', 'b', 'c', 'd'];
+	for ($i=0;$i==10;$i++;) {
+		$table->table_row($array);
+	}
+	$table->table_end();
 
 ```
+Will generate a 4*10 table.
