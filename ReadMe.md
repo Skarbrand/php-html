@@ -2,7 +2,11 @@
 
 ##Introduction##
 
-It is important that the resulting code provides best readability.
+php-html is class for generating html-pages. Unfortunatly is the method used kinda obsolete.
+Main focus was that the resulting code provides best readability.
+
+If anyone finds it useful i will provide full documentation.
+You can also use github for feature-request.
 
 ##Documentation##
 ###Reference###
@@ -11,9 +15,11 @@ It is important that the resulting code provides best readability.
 
 `html_page`( *title* )  
 `html_table`( css_class, syntax_level )  
-`html_form`  
+`html_form`( action, syntax_level )
 
 *italic* values are optional
+syntax_level describes the 'deepness' of the object in the syntax tree
+
 ###Examples###
 -----
 ####Hello World####
