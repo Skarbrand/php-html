@@ -1,4 +1,4 @@
-#php-html v0.2#
+#php-html v0.3#
 
 ##Introduction##
 
@@ -35,8 +35,8 @@ syntax_level describes the 'deepness' of the object in the syntax tree
 ####Building a table dynamically####
 ```php
 	$table = new html_table('css_class',3);
-	$array = ['a', 'b', 'c', 'd'];
-	for ($i=0;$i==10;$i++;) {
+	$array = array('a', 'b', 'c', 'd');
+	for ($i=0;$i=<11;$i++) {
 		$table->table_row($array);
 	}
 	$table->table_end();
