@@ -12,8 +12,15 @@
 		function html_style($sheet) {
 			$this->head .= '		<link rel="stylesheet" type="text/css" href="'.$sheet.'">'."\r\n";
 		}
-		function html_js($js_file) {
+		function html_jshead($js_file) {
 			$this->head .= '		<script type="text/javascript" src="'.$js_file.'"></script>'."\r\n";
+		}
+		function html_jsfile($js_file) {
+			$this->body .= '		<script type="text/javascript" src="'.$js_file.'"></script>'."\r\n";
+		}
+		function html_js($js) {
+			$this->body .= '		<script type="text/javascript" >'."\r\n";
+			$this->body .= $js.'		</script>'."\r\n";
 		}
 		function html_iframe($src,$name) {
 			$iframe_str = '			<iframe src="'.$src.'" name="'.$name.'" frameborder="0">'."\r\n";
@@ -26,6 +33,14 @@
 			if (!empty($class)) { $label_str .= ' class="'.$class.'"'; }
 			if (!empty($id)) { $label_str .= ' id="'.$id.'"'; }
 			$label_str .= '>'."\r\n"."			".$caption."\r\n";
+			$label_str .= '		</div>'."\r\n";
+			$this->body .= $label_str;
+		}
+		function html_label_nobr($caption,$class="",$id="") {
+			$label_str = '		<div';
+			if (!empty($class)) { $label_str .= ' class="'.$class.'"'; }
+			if (!empty($id)) { $label_str .= ' id="'.$id.'"'; }
+			$label_str .= '>'."\r\n".$caption."\r\n";
 			$label_str .= '		</div>'."\r\n";
 			$this->body .= $label_str;
 		}
@@ -69,9 +84,9 @@
 	class html_form {
 		private $form_str;
 		private $lvl;
-		function __construct($action,$level_arg) {
+		function __construct($action,$level_arg,$method="post") {
 			$this->lvl = $level_arg;
-			$this->form_str = '<form method="post" action="'.$action.'">'."\r\n";
+			$this->form_str = '<form method="'.$method.'" action="'.$action.'">'."\r\n";
 		}
 		function input($name,$length=NULL,$pass=NULL,$initial=NULL,$class=NULL) {
 			$pass==true ? $type = "password" : $type = "text";
@@ -90,6 +105,15 @@
 		}
 		function force_br() {
 			$this->form_str .= get_tabs($this->lvl).'<br>'."\r\n";
+		}
+		function hidden($name,$value) {
+			$this->form_str .= get_tabs($this->lvl).'<input type="hidden" name="'.$name.'" value="'.$value.'">'."\r\n";
+		}
+		function dropdown($name,$options) {
+			$this->form_str .= get_tabs($this->lvl).'<select name="'.$name.'" size="1">'."\r\n";
+			$this->form_str .= $options."\r\n";
+			$this->form_str .= get_tabs($this->lvl).'</select>'."\r\n";
+			
 		}
 		function submit($caption) {
 			if (empty($caption)) {
